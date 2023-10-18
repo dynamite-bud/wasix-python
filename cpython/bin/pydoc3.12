@@ -1,0 +1,5 @@
+#!/home/seb/cpython/cpython/bin/python3.12.wasm
+
+import pydoc
+if __name__ == '__main__':
+    pydoc.cli()

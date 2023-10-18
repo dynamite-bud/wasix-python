@@ -1,0 +1,33 @@
+[package]
+name = 'dynamite-bud/python'
+version = '3.12.9+build.10'
+description = "Python is an interpreted, high-level, general-purpose programming language"
+license = "ISC"
+entrypoint = "python"
+readme = "README.md"
+
+# See more keys and definitions at https://docs.wasmer.io/registry/manifest
+
+[[module]]
+name = 'python'
+source = 'cpython/bin/python3.12.wasm'
+abi = 'wasi'
+
+[fs]
+"/cpython" = "cpython"
+"/openssl" = "openssl"
+"/site-packages" = "site-packages"
+
+[[command]]
+name = "python"
+module = "python"
+runner = "wasi"
+
+[[command]]
+name = "pip"
+module = "python"
+runner = "wasi"
+
+[command.annotations.wasi]
+main-args = ["-m", "pip"]
+env = ["PYTHONEXECUTABLE=/bin/python"]

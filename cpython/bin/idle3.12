@@ -1,0 +1,5 @@
+#!/home/seb/cpython/cpython/bin/python3.12.wasm
+
+from idlelib.pyshell import main
+if __name__ == '__main__':
+    main()
